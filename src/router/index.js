@@ -104,14 +104,6 @@ export const constantRoutes = [{
             }
         ]
     },
-    {
-        path: '/index',
-        component: () =>
-            import ('@/views/index'),
-        meta: {
-            title: 'index'
-        }
-    },
     // 404 page must be placed at the end !!!
     {
         path: '*',
