@@ -58,24 +58,9 @@ const actions = {
         } else {
             return Promise.reject(new Error('faile'))
         }
-        // return new Promise((resolve, reject) => {
-        //     login({
-        //         username: username.trim(),
-        //         password: password
-        //     }).then(response => {
-        //         const {
-        //             data
-        //         } = response
-        //         commit('SET_TOKEN', data.token)
-        //         setToken(data.token)
-        //         resolve()
-        //     }).catch(error => {
-        //         reject(error)
-        //     })
-        // })
     },
 
-    // get user info
+    // 获取用户信息
     getInfo({
         commit,
         state
@@ -87,7 +72,7 @@ const actions = {
                 } = response
 
                 if (!data) {
-                    return reject('Verification failed, please Login again.')
+                    return reject('验证失败，请重新登录')
                 }
 
                 const {

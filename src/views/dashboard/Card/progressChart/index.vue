@@ -39,8 +39,8 @@ export default {
         // 文本
         label: {
           show: true,
-          formatter:'|',
-          position:'right'
+          formatter: '|',
+          position: 'right'
         }
       }],
       // 布局调试

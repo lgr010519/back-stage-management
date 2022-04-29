@@ -34,7 +34,7 @@
         <el-table-column label="用户数" sortable> </el-table-column>
         <el-table-column label="周涨幅" sortable> </el-table-column>
       </el-table>
-      <!-- 分页去 -->
+      <!-- 分页器 -->
       <el-pagination layout="prev, pager, next" :total="1000" class="pagination"> </el-pagination>
     </div>
   </el-card>

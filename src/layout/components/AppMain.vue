@@ -10,6 +10,7 @@
 export default {
   name: 'AppMain',
   computed: {
+    // 保证路由切换时都会重新渲染触发钩子
     key() {
       return this.$route.path
     }
@@ -31,7 +32,7 @@ export default {
 </style>
 
 <style lang="scss">
-// fix css style bug in open el-dialog
+// 修正了打开el对话框时css样式的错误
 .el-popup-parent--hidden {
   .fixed-header {
     padding-right: 15px;

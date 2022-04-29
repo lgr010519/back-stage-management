@@ -1,7 +1,6 @@
 <template>
   <el-card class="box-card" style="margin: 10px 0px">
     <div slot="header" class="clearfix">
-      <!--  @tab-click="handleClick" -->
       <!-- 头部左侧内容 -->
       <el-tabs class="tab" v-model="activeName">
         <el-tab-pane label="销售额" name="sale"></el-tab-pane>
@@ -13,7 +12,6 @@
         <span @click="setWeek">本周</span>
         <span @click="setMonth">本月</span>
         <span @click="setYear">本年</span>
-        <!--    v-model="value1" -->
         <el-date-picker v-model="date" class="date" type="daterange" range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期" size="mini" value-format="yyyy-MM-dd">
         </el-date-picker>
       </div>
@@ -27,40 +25,10 @@
         <el-col :span="6" class="right">
           <h3>门店{{ title }}排名</h3>
           <ul>
-            <li>
-              <span class="rindex">0</span>
-              <span>麦当劳</span>
-              <span class="rvalue">211335</span>
-            </li>
-            <li>
-              <span class="rindex">1</span>
-              <span>肯德基</span>
-              <span class="rvalue">210597</span>
-            </li>
-            <li>
-              <span class="rindex">3</span>
-              <span>必胜客</span>
-              <span class="rvalue">200998</span>
-            </li>
-            <li>
-              <span>4</span>
-              <span>海底捞</span>
-              <span class="rvalue">199220</span>
-            </li>
-            <li>
-              <span>5</span>
-              <span>西贝莜面村</span>
-              <span class="rvalue">195444</span>
-            </li>
-            <li>
-              <span>6</span>
-              <span>汉堡王</span>
-              <span class="rvalue">180161</span>
-            </li>
-            <li>
-              <span>7</span>
-              <span>真功夫</span>
-              <span class="rvalue">172995</span>
+            <li v-for="(item,index) in listState.orderRank" :key="item.no">
+              <span class="rindex">{{item.no}}</span>
+              <span>{{item.name}}</span>
+              <span class="rvalue">{{item.money}}</span>
             </li>
           </ul>
         </el-col>
@@ -72,6 +40,7 @@
 <script>
 //引入echarts
 import echarts from "echarts";
+// 引入日期格式化插件
 import dayjs from "dayjs";
 import {
   mapState
@@ -126,14 +95,13 @@ export default {
     })
   },
 
-  //顶部是mounted：为什么第一次没有数据，没有数据因此不显示
-
   computed: {
     //计算属性-标题
     title() {
       //重新设置配置项
       return this.activeName == "sale" ? "销售额" : "访问量";
     },
+    // 获取mock数据
     ...mapState({
       listState: (state) => state.home.list,
     }),
@@ -161,10 +129,11 @@ export default {
         }, ],
       });
     },
+    // 监听listState数据变化
     listState() {
       this.mycharts.setOption({
         title: {
-          text: this.title + "趋势",
+          text: this.title
         },
         tooltip: {
           trigger: "axis",

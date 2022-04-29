@@ -23,7 +23,7 @@
           <el-button type="primary" icon="el-icon-edit" size="mini" @click="$message('正在开发中')"></el-button>
           <el-button type="info" icon="el-icon-info" size="mini" @click="getSkuInfo(row)"></el-button>
           <!-- 抽屉效果 -->
-          <el-drawer :visible.sync="show" :show-close="false" :before-close="handleClose" size="50%">
+          <el-drawer :visible.sync="show" :show-close="false" size="50%">
             <el-row>
               <el-col :span="5">
                 名称
