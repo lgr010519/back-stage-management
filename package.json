@@ -60,5 +60,7 @@
     "node": ">=8.9",
     "npm": ">= 3.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/lgr010519/back-stage-management.git"
 }
