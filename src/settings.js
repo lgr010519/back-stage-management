@@ -1,6 +1,6 @@
 module.exports = {
 
-    title: '后台管理系统',
+    title: '聚宝商城后台管理',
 
     /**
      * @type {boolean} true | false

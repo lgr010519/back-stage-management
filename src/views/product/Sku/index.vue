@@ -69,7 +69,7 @@
               </el-col>
             </el-row>
           </el-drawer>
-          <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
+          <el-button type="danger" icon="el-icon-delete" size="mini" style="margin-left:10px"></el-button>
         </template>
       </el-table-column>
     </el-table>
